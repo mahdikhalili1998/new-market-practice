@@ -1,9 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
-import { InfoContext, useInfo } from "../context/DataContext";
+import { useEffect, useState } from "react";
+import { useInfo } from "../context/DataContext";
 import { v4 as uuidv4 } from "uuid";
+import Loader from "../components/Loader";
+import Card from "../components/card";
 
 function HomePAge() {
-  const result = useContext(InfoContext);
+  const result = useInfo();
   const [display, setDisplay] = useState([]);
   const [products, setProducts] = useState([]);
   console.log(products);
@@ -14,27 +16,15 @@ function HomePAge() {
   useEffect(() => {
     const newProducts = display.map((item) => ({
       ...item,
-      id2: uuidv4(),
+      images: item.images.map((src) => ({ url: src, id: uuidv4() })),
     }));
     setProducts(newProducts);
   }, [display]);
 
   return (
     <>
-      {products.map((item) => (
-        <div key={item.id2}>
-          {item.images.map(
-            (pic) => (
-              console.log(pic),
-              (
-                <div key={item.id}>
-                  <img src={pic} alt={item.brand} />
-                </div>
-              )
-            )
-          )}
-        </div>
-      ))}
+      {!display.length && <Loader />}
+      <Card products={products} />
     </>
   );
 }

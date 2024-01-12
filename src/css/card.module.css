@@ -1,0 +1,8 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.container img {
+  width: 16rem;
+  height: auto;
+}
