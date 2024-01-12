@@ -1,0 +1,14 @@
+.container {
+  font-size: 2rem;
+}
+.container ul li {
+  list-style: none;
+  line-height: 3rem;
+}
+.container h3 {
+  color: var(--mainColor);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.4rem;
+}

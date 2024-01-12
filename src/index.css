@@ -1,3 +1,7 @@
+:root {
+  --mainColor: #845ef7;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -9,4 +13,5 @@ html {
 body {
   max-width: 150rem;
   margin: 1rem auto;
+  background-color: #f1f3f5;
 }

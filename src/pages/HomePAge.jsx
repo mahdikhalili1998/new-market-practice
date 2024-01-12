@@ -3,7 +3,9 @@ import { useInfo } from "../context/DataContext";
 import { v4 as uuidv4 } from "uuid";
 import Loader from "../components/Loader";
 import Card from "../components/card";
-
+import Category from "../components/Category";
+import styles from "../css/homepage.module.css";
+import Search from "../components/Search";
 function HomePAge() {
   const result = useInfo();
   const [display, setDisplay] = useState([]);
@@ -22,10 +24,14 @@ function HomePAge() {
   }, [display]);
 
   return (
-    <>
+    <div>
       {!display.length && <Loader />}
-      <Card products={products} />
-    </>
+      <Search />
+      <div className={styles.container}>
+        <Card products={products} />
+        <Category products={products} />
+      </div>
+    </div>
   );
 }
 

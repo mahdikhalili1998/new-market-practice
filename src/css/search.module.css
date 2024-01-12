@@ -1,0 +1,21 @@
+.container {
+  margin-left: 2rem;
+  margin-bottom: 4rem;
+  font-size: 2.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 2px dashed var(--mainColor);
+  width: 23rem;
+  padding: 4px 8px;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+.container input:focus {
+  outline-style: none;
+}
+
+.container input {
+  border: none;
+  padding: 6px;
+}
