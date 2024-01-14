@@ -22,12 +22,14 @@ function HomePAge() {
     search,
     setSearch,
   } = info;
+
   const [display, setDisplay] = useState([]);
-  console.log(display);
+  const [nothing, setNothing] = useState(true);
+  console.log(nothing);
   useEffect(() => {
     setDisplay(data);
-    // setQuery(queryHAndler(searchParams));
-    // setSearch(query.search || "");
+    setQuery(queryHAndler(searchParams));
+    setSearch(query.search || "");
   }, [data]);
 
   useEffect(() => {
@@ -35,6 +37,10 @@ function HomePAge() {
     let searchReslt = searchFinder(data, query.search);
     let final = categoryHandler(searchReslt, query.category);
     setDisplay(final);
+    console.log(final);
+    {
+      !final.length ? setNothing(false) : setNothing(true);
+    }
   }, [query]);
 
   const searchHandler = () => {
@@ -45,6 +51,7 @@ function HomePAge() {
       {!display.length && <Loader />}
       <Search searchHandler={searchHandler} />
       <div className={styles.container}>
+        {!nothing && <p>hi</p>}
         <Card display={display} />
       </div>
     </div>

@@ -7,6 +7,7 @@ const searchFinder = (products, search) => {
   const searcher = products.filter((item) =>
     item.title.toLowerCase().includes(search)
   );
+
   return searcher;
 };
 
