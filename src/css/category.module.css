@@ -15,6 +15,7 @@
   outline: 0.5rem solid #9d7ef9;
   border: 2px solid #fff;
   border-radius: 1rem;
+  cursor: pointer;
 }
 .segosh {
   position: absolute;

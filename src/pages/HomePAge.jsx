@@ -1,34 +1,51 @@
-import { useEffect, useState } from "react";
-import { useInfo } from "../context/DataContext";
+import { useContext, useEffect, useState } from "react";
+import { InfoContext, useInfo } from "../context/DataContext";
 import { v4 as uuidv4 } from "uuid";
 import Loader from "../components/Loader";
 import Card from "../components/card";
-import Category from "../components/Category";
 import styles from "../css/homepage.module.css";
 import Search from "../components/Search";
+import {
+  categoryHandler,
+  createQuery,
+  queryHAndler,
+  searchFinder,
+} from "../helper/help";
 function HomePAge() {
-  const result = useInfo();
+  const info = useContext(InfoContext);
+  const {
+    data,
+    query,
+    setQuery,
+    searchParams,
+    setSearchParams,
+    search,
+    setSearch,
+  } = info;
   const [display, setDisplay] = useState([]);
-  const [products, setProducts] = useState([]);
-  console.log(products);
+  console.log(display);
   useEffect(() => {
-    setDisplay(result);
-  }, [result]);
+    setDisplay(data);
+    // setQuery(queryHAndler(searchParams));
+    // setSearch(query.search || "");
+  }, [data]);
 
   useEffect(() => {
-    const newProducts = display.map((item) => ({
-      ...item,
-      images: item.images.map((src) => ({ url: src, id: uuidv4() })),
-    }));
-    setProducts(newProducts);
-  }, [display]);
+    setSearchParams(query);
+    let searchReslt = searchFinder(data, query.search);
+    let final = categoryHandler(searchReslt, query.category);
+    setDisplay(final);
+  }, [query]);
 
+  const searchHandler = () => {
+    setQuery((query) => createQuery(query, { search }));
+  };
   return (
     <div>
       {!display.length && <Loader />}
-      <Search />
+      <Search searchHandler={searchHandler} />
       <div className={styles.container}>
-        <Card products={products} />
+        <Card display={display} />
       </div>
     </div>
   );

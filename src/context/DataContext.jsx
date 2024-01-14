@@ -1,11 +1,13 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import api from "../services/config";
-import axios from "axios";
+import { useSearchParams } from "react-router-dom";
 
 export const InfoContext = createContext();
 function DataContext({ children }) {
+  const [query, setQuery] = useState({});
+  const [search, setSearch] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
   const [data, setData] = useState([]);
-  // console.log(data);
   useEffect(() => {
     const getData = async () => {
       try {
@@ -17,12 +19,26 @@ function DataContext({ children }) {
     };
     getData();
   }, []);
+
   return (
     <>
-      <InfoContext.Provider value={data}>{children}</InfoContext.Provider>
+      <InfoContext.Provider
+        value={{
+          data,
+          query,
+          setQuery,
+          searchParams,
+          setSearchParams,
+          search,
+          setSearch,
+        }}
+      >
+        {children}
+      </InfoContext.Provider>
     </>
   );
 }
+
 const useInfo = () => {
   const result = useContext(InfoContext);
   return result;
