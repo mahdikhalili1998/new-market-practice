@@ -29,7 +29,6 @@ function HomePAge() {
       <Search />
       <div className={styles.container}>
         <Card products={products} />
-        <Category products={products} />
       </div>
     </div>
   );

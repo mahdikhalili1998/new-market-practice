@@ -20,17 +20,17 @@
   height: 18rem;
   border-radius: 1rem;
 }
-.cardForm p {
+.title {
   font-size: 1.8rem;
   font-weight: 700;
 }
 .icon {
-  font-size: 2rem;
+  font-size: 1.6rem;
   margin-bottom: 3rem;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  gap: 8rem;
+  gap: 12rem;
 }
 .icon span {
   font-weight: 900;
@@ -41,5 +41,14 @@
   display: flex;
   align-items: center;
   border: 1px solid #fff;
-  outline: 3px solid var(--mainColor);
+}
+.sp {
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.sp span {
+  color: var(--mainColor);
+  margin-top: 3px;
 }

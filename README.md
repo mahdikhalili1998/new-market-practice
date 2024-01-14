@@ -8,12 +8,8 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 
-   <div className={styles.container}>
-        {products.map((item) => (
-          <div key={item.id}>
-            {item.images.map((pic) => (
-              <img key={pic.id} src={pic.url} alt={item.brand} />
-            ))}
-          </div>
-        ))}
-      </div>
+ git add . 
+$ git status 
+$ git commite -m "file added"
+$ git push
+   

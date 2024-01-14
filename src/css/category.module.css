@@ -1,14 +1,28 @@
-.container {
-  font-size: 2rem;
+.hide {
+  display: none;
 }
-.container ul li {
+.categoryList {
+  position: absolute;
   list-style: none;
-  line-height: 3rem;
+  font-size: 1.2rem;
+  gap: 5px;
+  background-color: #9d7ef9;
+  padding: 1rem 0.5rem;
+  right: 1rem;
+  top: 12.3rem;
+  line-height: 2rem;
+  letter-spacing: 1px;
+  outline: 0.5rem solid #9d7ef9;
+  border: 2px solid #fff;
+  border-radius: 1rem;
 }
-.container h3 {
-  color: var(--mainColor);
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.4rem;
+.segosh {
+  position: absolute;
+  font-size: 1.5rem;
+  top: 11.2rem;
+  right: 6.5rem;
+  z-index: 3;
+}
+.CategoryIcon {
+  position: relative;
 }
