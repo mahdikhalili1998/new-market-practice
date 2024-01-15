@@ -5,6 +5,7 @@ import Loader from "../components/Loader";
 import Card from "../components/card";
 import styles from "../css/homepage.module.css";
 import Search from "../components/Search";
+import styless from "../css/card.module.css";
 import {
   categoryHandler,
   createQuery,
@@ -25,7 +26,7 @@ function HomePAge() {
 
   const [display, setDisplay] = useState([]);
   const [nothing, setNothing] = useState(true);
-  console.log(nothing);
+
   useEffect(() => {
     setDisplay(data);
     setQuery(queryHAndler(searchParams));
@@ -37,7 +38,7 @@ function HomePAge() {
     let searchReslt = searchFinder(data, query.search);
     let final = categoryHandler(searchReslt, query.category);
     setDisplay(final);
-    console.log(final);
+
     {
       !final.length ? setNothing(false) : setNothing(true);
     }
@@ -52,7 +53,11 @@ function HomePAge() {
       <Search searchHandler={searchHandler} />
       <div className={styles.container}>
         {!nothing && <p>hi</p>}
-        <Card display={display} />
+        <div className={styless.container}>
+          {display.map((item) => (
+            <Card key={item.id} data={item} />
+          ))}
+        </div>
       </div>
     </div>
   );

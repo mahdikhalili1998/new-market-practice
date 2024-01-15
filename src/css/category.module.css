@@ -8,7 +8,7 @@
   gap: 5px;
   background-color: #9d7ef9;
   padding: 1rem 0.5rem;
-  right: 1rem;
+  right: 6rem;
   top: 12.3rem;
   line-height: 2rem;
   letter-spacing: 1px;
@@ -21,7 +21,7 @@
   position: absolute;
   font-size: 1.5rem;
   top: 11.2rem;
-  right: 6.5rem;
+  right: 11.5rem;
   z-index: 3;
 }
 .CategoryIcon {

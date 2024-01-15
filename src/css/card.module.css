@@ -2,22 +2,22 @@
   display: grid;
   column-gap: 2rem;
   row-gap: 3rem;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .cardForm {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4rem;
+  gap: 1rem;
   background-color: #fff;
   box-shadow: 1rem 1rem 1rem #e5dbff;
   border-radius: 1rem;
 }
 .cardForm img {
   margin-top: 2rem;
-  width: 18rem;
-  height: 18rem;
+  width: 16rem;
+  height: 16rem;
   border-radius: 1rem;
 }
 .title {
@@ -27,10 +27,11 @@
 .icon {
   font-size: 1.6rem;
   margin-bottom: 3rem;
+  margin-top: 2rem;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  gap: 12rem;
+  gap: 9rem;
 }
 .icon span {
   font-weight: 900;
@@ -42,6 +43,9 @@
   align-items: center;
   border: 1px solid #fff;
 }
+.link {
+  color: #fff;
+}
 .sp {
   font-size: 1.6rem;
   display: flex;
@@ -51,4 +55,14 @@
 .sp span {
   color: var(--mainColor);
   margin-top: 3px;
+}
+@media (max-width: 1090px) {
+  .container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

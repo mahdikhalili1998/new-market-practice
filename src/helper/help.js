@@ -1,5 +1,5 @@
 const shortName = (text) => {
-  const makeShort = text.split(" ").slice(0, 3).join(" ");
+  const makeShort = text.split(" ").slice(0, 2).join(" ");
   return makeShort;
 };
 const searchFinder = (products, search) => {
