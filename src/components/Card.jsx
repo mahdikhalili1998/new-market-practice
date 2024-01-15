@@ -1,17 +1,19 @@
 import styles from "../css/card.module.css";
 import { MdAddShoppingCart } from "react-icons/md";
 import { BsDisplay, BsInfoCircle } from "react-icons/bs";
-import { shortName } from "../helper/help";
+import { quantityHandler, shortName } from "../helper/help";
 import { IoMdPricetag } from "react-icons/io";
 import { RiStockLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { useCard } from "../context/CardContext";
+import { FaTrashCan } from "react-icons/fa6";
 function Card({ data }) {
   const { id, stock, price, title, brand, thumbnail } = data;
   const { state, dispatch } = useCard();
   const shopingHandler = (type) => {
     dispatch({ type, payload: data });
   };
+  const quantity = quantityHandler(state, id);
   return (
     <div key={id} className={styles.cardForm}>
       <img src={thumbnail} alt={brand} />
@@ -29,8 +31,19 @@ function Card({ data }) {
         Prices : {price} $
       </p>
       <div className={styles.icon}>
-        <span onClick={() => shopingHandler("ADD_ITEM")}>
-          <MdAddShoppingCart />
+        <span>
+          {quantity === 0 ? (
+            <MdAddShoppingCart onClick={() => shopingHandler("ADD_ITEM")} />
+          ) : (
+            <button onClick={() => shopingHandler("INCREASE")}>+</button>
+          )}
+          {!!quantity && <span>{quantity}</span>}
+          {quantity === 1 && (
+            <FaTrashCan onClick={() => shopingHandler("REMOVE")} />
+          )}
+          {quantity > 1 && (
+            <button onClick={() => shopingHandler("DECREASE")}>-</button>
+          )}
         </span>
         <span>
           <Link className={styles.link} to={`/detail-page/${id}`}>

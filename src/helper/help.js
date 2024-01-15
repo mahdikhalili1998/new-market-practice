@@ -45,4 +45,29 @@ const queryHAndler = (searchParams) => {
   return query;
 };
 
-export { shortName, categoryHandler, queryHAndler, createQuery, searchFinder };
+const quantityHandler = (state, id) => {
+  const index = state.selectedItem.findIndex((item) => item.id === id);
+  if (index === -1) {
+    return 0;
+  } else {
+    return state.selectedItem[index].quantity;
+  }
+};
+
+const pluser = (item) => {
+  const counterItem = item.reduce((acc, cur) => acc + cur.quantity, 0);
+  const total = item
+    .reduce((acc, cur) => acc + cur.price * cur.quantity, 0)
+    .toFixed(2);
+  return { counterItem, total };
+};
+
+export {
+  quantityHandler,
+  shortName,
+  categoryHandler,
+  queryHAndler,
+  createQuery,
+  searchFinder,
+  pluser,
+};
