@@ -13,10 +13,10 @@ function App() {
         <DataContext>
           <Layout>
             <Routes>
-              <Route path="/" element={<Navigate to="/homepage" replace />} />
+              <Route index element={<Navigate to="/homepage" replace />} />
               <Route path="/homepage" element={<HomePAge />} />
               <Route path="/*" element={<PageNotFound />} />
-              <Route path="/detail-page:id" element={<DetailPage />} />
+              <Route path="/detailpage/:id" element={<DetailPage />} />
             </Routes>
           </Layout>
         </DataContext>

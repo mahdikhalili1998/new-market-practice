@@ -40,3 +40,17 @@
   align-items: center;
   gap: 1rem;
 }
+.cn {
+  position: relative;
+}
+.number {
+  font-size: 1.4rem;
+  font-weight: 500;
+  position: absolute;
+  top: -0.8rem;
+  right: -.5rem;
+  color: var(--mainColor);
+  padding: 0px 4px;
+  background-color: #fff;
+  border-radius: .5rem;
+}

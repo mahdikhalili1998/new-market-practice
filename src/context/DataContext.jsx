@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import api from "../services/config";
 import { useSearchParams } from "react-router-dom";
-
+import { v4 as uuidv4 } from "uuid";
 export const InfoContext = createContext();
 function DataContext({ children }) {
   const [query, setQuery] = useState({});
@@ -12,7 +12,11 @@ function DataContext({ children }) {
     const getData = async () => {
       try {
         const fetch = await api.get("/products");
-        setData(fetch.products);
+        const newProducts = fetch.products.map((item) => ({
+          ...item,
+          images: item.images.map((url) => ({ id: uuidv4(), img: url })),
+        }));
+        setData(newProducts);
       } catch (error) {
         console.log(error);
       }
@@ -43,6 +47,10 @@ const useInfo = () => {
   const result = useContext(InfoContext);
   return result;
 };
-
+const detailProduct = (id) => {
+  const { data } = useContext(InfoContext);
+  const finder = data.find((item) => item.id === id);
+  return finder;
+};
 export default DataContext;
-export { useInfo };
+export { useInfo, detailProduct };

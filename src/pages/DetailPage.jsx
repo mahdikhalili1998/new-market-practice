@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { InfoContext, detailProduct } from "../context/DataContext";
+import Swiper from "../components/Swiper";
 
 function DetailPage() {
+  const { id } = useParams();
+  const result = detailProduct(+id);
+
+
   return (
-    <div>DetailPage</div>
-  )
+    <div>
+      <Swiper result={result} />
+    </div>
+  );
 }
 
-export default DetailPage
+export default DetailPage;

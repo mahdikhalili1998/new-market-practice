@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { InfoContext, useInfo } from "../context/DataContext";
-import { v4 as uuidv4 } from "uuid";
+
 import Loader from "../components/Loader";
 import Card from "../components/card";
 import styles from "../css/homepage.module.css";
@@ -26,8 +26,9 @@ function HomePAge() {
 
   const [display, setDisplay] = useState([]);
   const [nothing, setNothing] = useState(true);
-
+  console.log(display);
   useEffect(() => {
+ 
     setDisplay(data);
     setQuery(queryHAndler(searchParams));
     setSearch(query.search || "");

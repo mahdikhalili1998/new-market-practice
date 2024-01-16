@@ -31,22 +31,39 @@ function Card({ data }) {
         Prices : {price} $
       </p>
       <div className={styles.icon}>
-        <span>
+        <span className={styles.buttonsContainer}>
           {quantity === 0 ? (
-            <MdAddShoppingCart onClick={() => shopingHandler("ADD_ITEM")} />
+            <MdAddShoppingCart
+              className={styles.buttons}
+              onClick={() => shopingHandler("ADD_ITEM")}
+            />
           ) : (
-            <button onClick={() => shopingHandler("INCREASE")}>+</button>
+            <button
+              className={styles.buttons}
+              onClick={() => shopingHandler("INCREASE")}
+            >
+              +
+            </button>
           )}
           {!!quantity && <span>{quantity}</span>}
           {quantity === 1 && (
-            <FaTrashCan onClick={() => shopingHandler("REMOVE")} />
+            <FaTrashCan
+              className={styles.trash}
+              onClick={() => shopingHandler("REMOVE")}
+            />
           )}
           {quantity > 1 && (
-            <button onClick={() => shopingHandler("DECREASE")}>-</button>
+            <button
+              style={{ marginTop: "-.4rem" }}
+              className={styles.buttons}
+              onClick={() => shopingHandler("DECREASE")}
+            >
+              -
+            </button>
           )}
         </span>
-        <span>
-          <Link className={styles.link} to={`/detail-page/${id}`}>
+        <span className={styles.info}>
+          <Link className={styles.link} to={`/detailpage/${data.id}`}>
             <BsInfoCircle />
           </Link>
         </span>

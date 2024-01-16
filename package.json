@@ -17,6 +17,7 @@
     "react-loader-spinner": "^6.1.6",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.21.2",
+    "swiper": "^11.0.5",
     "uuid": "^9.0.1"
   },
   "devDependencies": {
@@ -27,6 +28,7 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "less": "^4.2.0",
     "vite": "^5.0.8"
   }
 }

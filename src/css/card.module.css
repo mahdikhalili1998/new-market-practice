@@ -32,19 +32,29 @@
   align-items: center;
   justify-content: space-around;
   gap: 9rem;
+  color: black;
 }
-.icon span {
-  font-weight: 900;
-  color: #fff;
-  background-color: var(--mainColor);
-  padding: 2px 4px;
-  border-radius: 5px;
+
+.buttonsContainer {
   display: flex;
   align-items: center;
-  border: 1px solid #fff;
+  gap: 0.6rem;
+}
+.buttons {
+  color: var(--mainColor);
+  background-color: transparent;
+  border: none;
+  font-size: 2rem;
+}
+.trash {
+  color: var(--mainColor);
+  background-color: transparent;
+  border: none;
+  font-size: 1.6rem;
 }
 .link {
-  color: #fff;
+  color: var(--mainColor);
+  font-size: 1.8rem;
 }
 .sp {
   font-size: 1.6rem;
@@ -55,6 +65,8 @@
 .sp span {
   color: var(--mainColor);
   margin-top: 3px;
+}
+.inde {
 }
 @media (max-width: 1090px) {
   .container {
