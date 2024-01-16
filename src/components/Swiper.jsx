@@ -1,33 +1,42 @@
+import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
-import "swiper/less";
-import "swiper/less/pagination";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
 
-export default ({ result }) => {
-  //   console.log(result);
+import "../css/swiper.css";
 
-  //   console.log(product);
-  //   useEffect(() => {
-  //     setProduct({
-  //       ...result,
-  //       images: result.images.map((item) => ({ url: item, id: uuidv4() })),
-  //     });
-  //   }, [result]);
+// import required modules
+import { EffectCoverflow, Pagination } from "swiper/modules";
+
+export default function App({ result }) {
   return (
-    <Swiper
-      spaceBetween={0}
-      slidesPerView={1}
-      onSlideChange={() => console.log("slide change")}
-      onSwiper={(swiper) => console.log(swiper)}
-    >
-      {result.images.map((img) => (
-        <SwiperSlide key={img.id}>
-          <img style={{ width: "15rem" }} src={img.img} alt={result.brand} />
-        </SwiperSlide>
-      ))}
-      ...
-    </Swiper>
+    <>
+      <Swiper
+        effect={"coverflow"}
+        grabCursor={true}
+        centeredSlides={true}
+        slidesPerView={"auto"}
+        coverflowEffect={{
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true,
+        }}
+        pagination={true}
+        modules={[EffectCoverflow, Pagination]}
+        className="mySwiper"
+      >
+        {result.images.map((item) => (
+          <SwiperSlide key={item.id}>
+            <img src={item.img} alt={result.brand} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </>
   );
-};
+}

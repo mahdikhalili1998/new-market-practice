@@ -26,7 +26,7 @@ function HomePAge() {
 
   const [display, setDisplay] = useState([]);
   const [nothing, setNothing] = useState(true);
-  console.log(display);
+  // console.log(display);
   useEffect(() => {
  
     setDisplay(data);

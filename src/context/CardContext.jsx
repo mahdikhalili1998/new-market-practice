@@ -43,7 +43,7 @@ const reducer = (state, action) => {
 };
 function CardContext({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
-  console.log(state);
+  // console.log(state);
   return (
     <>
       <InfoCardContext.Provider value={{ state, dispatch }}>
