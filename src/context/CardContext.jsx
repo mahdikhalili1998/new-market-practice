@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useReducer } from "react";
 import { pluser } from "../helper/help";
-const InfoCardContext = createContext();
+export const InfoCardContext = createContext();
 const initialState = {
   selectedItem: [],
   counterItem: 0,
@@ -17,7 +17,7 @@ const reducer = (state, action) => {
       return { ...state, ...pluser(state.selectedItem), checkOut: false };
     case "REMOVE":
       const newSelectedItem = state.selectedItem.filter((item) => {
-        item.id !== action.payload.id;
+        return item.id !== action.payload.id;
       });
       return {
         ...state,
@@ -43,7 +43,7 @@ const reducer = (state, action) => {
 };
 function CardContext({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
-  // console.log(state);
+  console.log(state);
   return (
     <>
       <InfoCardContext.Provider value={{ state, dispatch }}>

@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { useCard } from "../context/CardContext";
 import { FaTrashCan } from "react-icons/fa6";
 function Card({ data }) {
+  // console.log(data);
   const { id, stock, price, title, brand, thumbnail } = data;
   const { state, dispatch } = useCard();
   const shopingHandler = (type) => {
