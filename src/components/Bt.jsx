@@ -33,7 +33,7 @@ function Bt({ data }) {
         {quantity === 1 && (
           <FaTrashCan
             className={styles.trash}
-            onClick={() => shopingHandler("REMOVEee")}
+            onClick={() => shopingHandler("REMOVE")}
           />
         )}
         {quantity > 1 && (

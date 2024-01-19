@@ -4,17 +4,19 @@
   align-items: center;
 }
 .icons h2 {
-  margin: 2rem 0rem;
+  margin: 2rem 0rem 1rem 0rem;
   color: #4f3894;
 }
 .iconInfo {
   display: flex;
   gap: 2rem;
+  margin-bottom: 1rem;
   font-size: 1.2rem;
-  margin-bottom: 2rem;
+  font-weight: 600;
 }
 .mainIcon {
   color: var(--mainColor);
+  font-size: 1.7rem;
 }
 .twoIcons p {
   display: flex;
@@ -27,4 +29,43 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.des {
+  height: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.des h3 {
+  color: var(--mainColor);
+  letter-spacing: 1.5px;
+}
+.moreDes {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.moreDes span {
+  margin-top: 0.5rem;
+  font-size: 1.9rem;
+  color: var(--mainColor);
+}
+.middle {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.back {
+  margin-top: -1rem;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: var(--mainColor);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.backIcon {
+  font-size: 2rem;
 }

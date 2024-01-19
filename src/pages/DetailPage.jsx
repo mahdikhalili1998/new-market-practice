@@ -1,26 +1,23 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { InfoContext, detailProduct } from "../context/DataContext";
+import { Link, useParams } from "react-router-dom";
+import { detailProduct } from "../context/DataContext";
 import Swiper from "../components/Swiper";
 import { IoLogoFlickr } from "react-icons/io";
 import { BiSolidCategory } from "react-icons/bi";
 import { IoMdPricetag } from "react-icons/io";
 import { FaStar } from "react-icons/fa";
 import Styles from "../css/detail.module.css";
-import styles from "../css/card.module.css";
-import { InfoCardContext } from "../context/CardContext";
-import { FaTrashCan } from "react-icons/fa6";
-import { MdAddShoppingCart } from "react-icons/md";
-import { quantityHandler } from "../helper/help";
 import Bt from "../components/Bt";
 import Loader from "../components/Loader";
+import { IoIosArrowDropdownCircle } from "react-icons/io";
+import { IoIosArrowDropupCircle } from "react-icons/io";
+import { IoArrowBackCircleSharp } from "react-icons/io5";
 
 function DetailPage() {
+  const [click, setClick] = useState(true);
   const { id } = useParams();
   const result = detailProduct(+id);
   if (!result) return <Loader />;
-
-  console.log(result);
 
   return (
     <div className={Styles.container}>
@@ -30,28 +27,53 @@ function DetailPage() {
         <div className={Styles.iconInfo}>
           <div className={Styles.twoIcons}>
             <p>
-              <IoLogoFlickr className={Styles.mainIcon} /> Brand :{" "}
-              {result.brand}
+              <IoLogoFlickr className={Styles.mainIcon} /> <span> </span> Brand
+              : {result.brand}
             </p>
             <p>
-              <BiSolidCategory className={Styles.mainIcon} /> Category :{" "}
-              {result.category}
+              <BiSolidCategory className={Styles.mainIcon} /> <span> </span>{" "}
+              Category : {result.category}
             </p>
           </div>
           <div className={Styles.twoIcons}>
             <p>
-              <IoMdPricetag className={Styles.mainIcon} /> Price :{" "}
-              {result.price}
+              <IoMdPricetag className={Styles.mainIcon} /> <span> </span> Price
+              : {result.price}
             </p>
             <p>
-              <FaStar className={Styles.mainIcon} /> Rating : {result.rating}
+              <FaStar className={Styles.mainIcon} /> <span> </span> Rating :{" "}
+              {result.rating}
             </p>
           </div>
         </div>
 
-        <Bt data={result} />
+        <div className={Styles.middle}>
+          <Bt data={result} />
+          <Link className={Styles.back} to="/homepage">
+            Back to HomePage <IoArrowBackCircleSharp className={Styles.backIcon} />{" "}
+          </Link>
+        </div>
 
-        <p>{result.description}</p>
+        <div className={Styles.des}>
+          <div
+            onClick={() => {
+              setClick((click) => !click);
+            }}
+            className={Styles.moreDes}
+          >
+            <h3>Description ( ... ) </h3>
+            {click ? (
+              <span>
+                <IoIosArrowDropdownCircle c />
+              </span>
+            ) : (
+              <span>
+                <IoIosArrowDropupCircle />
+              </span>
+            )}
+          </div>
+          {!click ? <p>{result.description}</p> : null}
+        </div>
       </div>
     </div>
   );

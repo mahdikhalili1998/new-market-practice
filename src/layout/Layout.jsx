@@ -4,12 +4,13 @@ import { SlBasket } from "react-icons/sl";
 import { RiAccountCircleFill } from "react-icons/ri";
 import Category from "../components/Category";
 import { useCard } from "../context/CardContext";
+import { Link } from "react-router-dom";
 function Layout({ children }) {
   const { state } = useCard();
   return (
     <>
       <header className={styles.headderContainer}>
-        <h1>ONLINE MARKET </h1>
+        <Link className={styles.h2} to="./homepage">ONLINE MARKET</Link>
         <div className={styles.icon}>
           <span className={styles.cn}>
             <SlBasket />

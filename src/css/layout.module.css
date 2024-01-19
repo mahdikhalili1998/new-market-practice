@@ -33,7 +33,7 @@
   margin: 0 2rem 4rem 2rem;
   text-align: center;
   margin-top: 5rem;
-  margin-bottom: 2rem;
+ margin-bottom: 3rem;
 }
 .navServices {
   display: flex;
@@ -48,9 +48,15 @@
   font-weight: 500;
   position: absolute;
   top: -0.8rem;
-  right: -.5rem;
+  right: -0.5rem;
   color: var(--mainColor);
   padding: 0px 4px;
   background-color: #fff;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
+}
+.h2 {
+  text-decoration: none;
+  color: #fff;
+  letter-spacing: 2px;
+  font-size: 2.5rem;
 }

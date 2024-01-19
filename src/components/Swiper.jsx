@@ -4,31 +4,29 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 import "../css/swiper.css";
 
 // import required modules
-import { EffectCoverflow, Pagination } from "swiper/modules";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 export default function App({ result }) {
   return (
     <>
       <Swiper
-        effect={"coverflow"}
-        grabCursor={true}
+        spaceBetween={30}
         centeredSlides={true}
-        slidesPerView={"auto"}
-        coverflowEffect={{
-          rotate: 50,
-          stretch: 0,
-          depth: 100,
-          modifier: 1,
-          slideShadows: true,
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
         }}
-        pagination={true}
-        modules={[EffectCoverflow, Pagination]}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
         {result.images.map((item) => (
