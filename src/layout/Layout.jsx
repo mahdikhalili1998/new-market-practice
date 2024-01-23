@@ -10,10 +10,14 @@ function Layout({ children }) {
   return (
     <>
       <header className={styles.headderContainer}>
-        <Link className={styles.h2} to="./homepage">ONLINE MARKET</Link>
+        <Link className={styles.h2} to="./homepage">
+          ONLINE MARKET
+        </Link>
         <div className={styles.icon}>
           <span className={styles.cn}>
-            <SlBasket />
+            <Link className={styles.h2} to="/buy-list">
+              <SlBasket />
+            </Link>
             {!!state.counterItem && (
               <p className={styles.number}>{state.counterItem}</p>
             )}

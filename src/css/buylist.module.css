@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+.proList {
+  display: flex;
+}
+.proList img {
+  width: 15rem;
+  height: 14rem;
+  border-radius: 1rem;
+}

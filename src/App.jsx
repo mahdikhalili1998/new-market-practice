@@ -5,6 +5,7 @@ import HomePAge from "./pages/HomePAge";
 import PageNotFound from "./pages/404";
 import Layout from "./layout/Layout";
 import DetailPage from "./pages/DetailPage";
+import BuyList from "./pages/BuyList";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
               <Route index element={<Navigate to="/homepage" replace />} />
               <Route path="/homepage" element={<HomePAge />} />
               <Route path="/*" element={<PageNotFound />} />
+              <Route path="/buy-list" element={<BuyList />} />
               <Route path="/detailpage/:id" element={<DetailPage />} />
             </Routes>
           </Layout>
