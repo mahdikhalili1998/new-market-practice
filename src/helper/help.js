@@ -61,7 +61,7 @@ const pluser = (item) => {
     .toFixed(2);
   return { counterItem, total };
 };
-
+const totalThisPro = (item) => console.log(item);
 export {
   quantityHandler,
   shortName,
@@ -70,4 +70,8 @@ export {
   createQuery,
   searchFinder,
   pluser,
+  totalThisPro,
 };
+
+
+// item.quantity * item.price

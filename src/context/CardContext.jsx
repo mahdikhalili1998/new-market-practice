@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer } from "react";
-import { pluser } from "../helper/help";
+import { pluser, totalThisPro } from "../helper/help";
 export const InfoCardContext = createContext();
 const initialState = {
   selectedItem: [],
@@ -12,8 +12,13 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_ITEM":
       if (!state.selectedItem.find((item) => item.id === action.payload.id)) {
-        state.selectedItem.push({ ...action.payload, quantity: 1 });
+        state.selectedItem.push({
+          ...action.payload,
+          quantity: 1,
+          totalThis: action.payload.price,
+        });
       }
+
       return { ...state, ...pluser(state.selectedItem), checkOut: false };
     case "REMOVE":
       const newSelectedItem = state.selectedItem.filter((item) => {
@@ -29,12 +34,16 @@ const reducer = (state, action) => {
         (item) => item.id === action.payload.id
       );
       state.selectedItem[index].quantity++;
+      state.selectedItem[index].totalThis =
+        state.selectedItem[index].quantity * state.selectedItem[index].price;
       return { ...state, ...pluser(state.selectedItem) };
     case "DECREASE":
       const indev = state.selectedItem.findIndex(
         (item) => item.id === action.payload.id
       );
       state.selectedItem[indev].quantity--;
+      state.selectedItem[indev].totalThis =
+        state.selectedItem[indev].quantity * state.selectedItem[indev].price;
       return { ...state, ...pluser(state.selectedItem) };
 
     default:
